@@ -1,0 +1,27 @@
+{
+  "name": "sample-monorepo",
+  "version": "0.0.0",
+  "description": "Sample monorepo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JayJay1024/sample-monorepo.git"
+  },
+  "keywords": [
+    "Sample",
+    "Monorepo"
+  ],
+  "author": "JayJay1024",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JayJay1024/sample-monorepo/issues"
+  },
+  "homepage": "https://github.com/JayJay1024/sample-monorepo#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true
+}
