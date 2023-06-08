@@ -241,7 +241,7 @@ function createScene() {
 
   const gltfloader = new GLTFLoader();
 
-  gltfloader.load("src/models/gltf/Test.glb", function (gltf) {
+  gltfloader.load("src/models/gltf/Horse.glb", function (gltf) {
     const mesh = gltf.scene.children[0];
 
     const clip = gltf.animations[0];
