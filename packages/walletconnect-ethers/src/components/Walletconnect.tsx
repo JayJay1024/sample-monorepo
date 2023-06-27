@@ -34,8 +34,8 @@ export const Walletconnect = () => {
       // qrModalOptions, // OPTIONAL - `undefined` by default, see https://docs.walletconnect.com/2.0/web3modal/options
     });
 
+    // ISSUE: unable to use browser installed MetaMask
     await p.connect();
-
     const accs = await await p.enable();
     setAccounts(accs);
 
