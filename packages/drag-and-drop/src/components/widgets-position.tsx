@@ -7,7 +7,7 @@ import { findWidgetDeepIndex } from "@/utils";
 
 let widgetCount = 0;
 
-export default function WidgetsPositionContainer() {
+export default function WidgetsPosition() {
   const [widgets, setWidgets] = useState<Widget[]>([]);
 
   const handleAdd = () =>
