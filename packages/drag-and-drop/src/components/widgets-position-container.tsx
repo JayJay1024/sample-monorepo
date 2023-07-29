@@ -61,37 +61,33 @@ export default function WidgetsPositionContainer() {
 
       if (options?.isMoveIntoSub) {
         if (dragDeep0Index === hoverDeep0Index) {
+          // in the same sub-widgets container
           return prev;
         } else {
-          // move to drag-here-item
+          // widget => sub-widget
           const dragWidget = { ...prev[dragDeep0Index] };
           prev[hoverDeep0Index].subWidgets.push(dragWidget);
           prev.splice(dragDeep0Index, 1);
           return [...prev];
         }
       } else if (dragDeep1Index > -1 && hoverDeep1Index > -1) {
-        // from sub-widget to sub-widget
+        // sub-widget => sub-widget
         const dragWidget = { ...prev[dragDeep0Index].subWidgets[dragDeep1Index] };
         prev[dragDeep0Index].subWidgets.splice(dragDeep1Index, 1);
         prev[hoverDeep0Index].subWidgets.splice(hoverDeep1Index, 0, dragWidget);
         return [...prev];
       } else if (dragDeep1Index > -1 && hoverDeep0Index > -1 && hoverDeep1Index === -1) {
-        // from sub-widget to widget
+        // sub-widget => widget
         const dragWidget = { ...prev[dragDeep0Index].subWidgets[dragDeep1Index] };
         prev[dragDeep0Index].subWidgets.splice(dragDeep1Index, 1);
         prev.splice(hoverDeep0Index, 0, dragWidget);
         return [...prev];
       } else if (dragDeep0Index > -1 && dragDeep1Index === -1 && hoverDeep1Index > -1) {
-        // from widget to sub-widget
-        // const dragWidget = { ...prev[dragDeep0Index] };
-        // prev.splice(dragDeep0Index, 1);
-        // prev[hoverDeep0Index].subWidgets.splice(hoverDeep1Index, 0, dragWidget);
-        // return [...prev];
-
-        // only via moving to drag-here-item
+        // widget => sub-widget
+        // only through the way of options?.isMoveIntoSub
         return prev;
       } else if (dragDeep0Index > -1 && dragDeep1Index === -1 && hoverDeep0Index > -1 && hoverDeep1Index === -1) {
-        // from widget to widget
+        // widget => widget
         const dragWidget = { ...prev[dragDeep0Index] };
         prev.splice(dragDeep0Index, 1);
         prev.splice(hoverDeep0Index, 0, dragWidget);
