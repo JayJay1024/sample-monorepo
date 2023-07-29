@@ -9,7 +9,7 @@ export default function WidgetsPositionContainer() {
   const [widgets, setWidgets] = useState<Widget[]>([]);
   const widgetIdRef = useRef(0);
 
-  const handleAddWidget = () =>
+  const handleAdd = () =>
     setWidgets((prev) => {
       return [
         {
@@ -23,7 +23,7 @@ export default function WidgetsPositionContainer() {
       ];
     });
 
-  const handleDeleteWidget = useCallback<DeleteHandler>((id: number) => {
+  const handleDelete = useCallback<DeleteHandler>((id: number) => {
     setWidgets((prev) => {
       const [deep0Index, deep1Index] = findWidgetDeepIndex(id, prev);
       if (deep1Index > -1) {
@@ -36,7 +36,7 @@ export default function WidgetsPositionContainer() {
     });
   }, []);
 
-  const handleEditWidget = useCallback<EditHandler>((id, meta) => {
+  const handleEdit = useCallback<EditHandler>((id, meta) => {
     setWidgets((prev) => {
       const [deep0Index, deep1Index] = findWidgetDeepIndex(id, prev);
       if (deep1Index > -1) {
@@ -49,7 +49,7 @@ export default function WidgetsPositionContainer() {
     });
   }, []);
 
-  const handleMoveWidget = useCallback<MoveHandler>((dragId, hoverId, options) => {
+  const handleMove = useCallback<MoveHandler>((dragId, hoverId, options) => {
     // options?.isMoveIntoSub: move to drag-here-item
 
     setWidgets((prev) => {
@@ -161,7 +161,7 @@ export default function WidgetsPositionContainer() {
       {/* add widget */}
       <button
         className="w-full border rounded py-2 transition-transform hover:scale-[1.01] active:translate-y-1 bg-white"
-        onClick={handleAddWidget}
+        onClick={handleAdd}
       >
         Add Widget
       </button>
@@ -173,9 +173,9 @@ export default function WidgetsPositionContainer() {
             <PositionWidgetItem
               key={widget.id}
               widget={widget}
-              onDelete={handleDeleteWidget}
-              onEdit={handleEditWidget}
-              onMove={handleMoveWidget}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+              onMove={handleMove}
             />
           ))}
         </div>
