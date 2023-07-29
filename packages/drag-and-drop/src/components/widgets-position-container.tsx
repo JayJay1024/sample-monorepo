@@ -157,28 +157,28 @@ export default function WidgetsPositionContainer() {
   }, []);
 
   return (
-    <div className="h-full overflow-y-auto w-[400px] bg-white p-5 rounded">
-      <div className="flex flex-col gap-3">
-        {/* add widget */}
-        <div className="pb-2">
-          <button
-            className="w-full border rounded py-2 transition-transform hover:scale-105 active:scale-95"
-            onClick={handleAddWidget}
-          >
-            Add Widget
-          </button>
-        </div>
+    <div className="w-[400px] flex flex-col gap-3">
+      {/* add widget */}
+      <button
+        className="w-full border rounded py-2 transition-transform hover:scale-[1.01] active:translate-y-1 bg-white"
+        onClick={handleAddWidget}
+      >
+        Add Widget
+      </button>
 
-        {/* widgets */}
-        {widgets.map((widget) => (
-          <PositionWidgetItem
-            key={widget.id}
-            widget={widget}
-            onDelete={handleDeleteWidget}
-            onEdit={handleEditWidget}
-            onMove={handleMoveWidget}
-          />
-        ))}
+      <div className="h-full overflow-y-auto bg-white p-5 rounded">
+        <div className="flex flex-col gap-3">
+          {/* widgets */}
+          {widgets.map((widget) => (
+            <PositionWidgetItem
+              key={widget.id}
+              widget={widget}
+              onDelete={handleDeleteWidget}
+              onEdit={handleEditWidget}
+              onMove={handleMoveWidget}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

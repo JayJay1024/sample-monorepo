@@ -6,7 +6,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 export default function Home() {
   return (
-    <main className="flex h-screen overflow-y-auto justify-center p-24">
+    <main className="flex h-screen overflow-y-auto justify-center p-14">
       <DndProvider backend={HTML5Backend}>
         <WidgetsPositionContainer />
       </DndProvider>
