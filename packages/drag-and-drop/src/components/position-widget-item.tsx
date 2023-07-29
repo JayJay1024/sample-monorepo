@@ -106,7 +106,7 @@ export default function PositionWidgetItem({ widget, onDelete, onEdit, onMove }:
           </div>
         )}
 
-        {/* children widget */}
+        {/* sub widgets */}
         {widget.isFixed && widget.isInstallChildren && (
           <>
             {/* existing widget */}
