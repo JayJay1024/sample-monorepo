@@ -4,10 +4,12 @@ import { DeleteHandler, EditHandler, MoveHandler, Widget } from "@/types";
 import { useCallback, useEffect, useState } from "react";
 import PositionWidgetItem from "./position-widget-item";
 import { findWidgetDeepIndex } from "@/utils";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 let widgetCount = 0;
 
-export default function WidgetsPosition() {
+function Component() {
   const [widgets, setWidgets] = useState<Widget[]>([]);
 
   const handleAdd = () =>
@@ -166,5 +168,13 @@ export default function WidgetsPosition() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function WidgetsPosition() {
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <Component />
+    </DndProvider>
   );
 }
