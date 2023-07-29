@@ -51,8 +51,6 @@ export default function WidgetsPositionContainer() {
   }, []);
 
   const handleMove = useCallback<MoveHandler>((dragId, hoverId, options) => {
-    // options?.isMoveIntoSub: move to drag-here-item
-
     setWidgets((prev) => {
       const [dragDeep0Index, dragDeep1Index] = findWidgetDeepIndex(dragId, prev);
       const [hoverDeep0Index, hoverDeep1Index] = findWidgetDeepIndex(hoverId, prev);
@@ -60,12 +58,6 @@ export default function WidgetsPositionContainer() {
       if (dragDeep0Index === -1 || hoverDeep0Index === -1) {
         return prev;
       }
-
-      // console.log(
-      //   `${dragId} => ${hoverId}, [${dragDeep0Index}, ${hoverDeep0Index}] => [${dragDeep1Index}, ${hoverDeep1Index}], ${
-      //     options?.isMoveIntoSub || false
-      //   }`
-      // );
 
       if (options?.isMoveIntoSub) {
         if (dragDeep0Index === hoverDeep0Index) {

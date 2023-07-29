@@ -35,6 +35,7 @@ export default function PositionWidgetItem({ widget, onDelete, onEdit, onMove }:
     {
       accept: DragTypes.WIDGET,
       hover: (draggedItem, monitor) => {
+        // subDropTargetRef is nested within dropTargetRef, so we use isOver with shallow set to true
         if (draggedItem.id !== widget.id && monitor.isOver({ shallow: true })) {
           onMove(draggedItem.id, widget.id);
         }
