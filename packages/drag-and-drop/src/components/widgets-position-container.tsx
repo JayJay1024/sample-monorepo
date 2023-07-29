@@ -1,20 +1,21 @@
 "use client";
 
 import { DeleteHandler, EditHandler, MoveHandler, Widget } from "@/types";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PositionWidgetItem from "./position-widget-item";
 import { findWidgetDeepIndex } from "@/utils";
 
+let widgetCount = 0;
+
 export default function WidgetsPositionContainer() {
   const [widgets, setWidgets] = useState<Widget[]>([]);
-  const widgetIdRef = useRef(0);
 
   const handleAdd = () =>
     setWidgets((prev) => {
       return [
         {
-          id: widgetIdRef.current,
-          name: `#${widgetIdRef.current++}`,
+          id: widgetCount,
+          name: `#${widgetCount++}`,
           isFixed: false,
           isInstallChildren: false,
           subWidgets: [],
@@ -115,8 +116,8 @@ export default function WidgetsPositionContainer() {
         .fill(0)
         .map(() => {
           return {
-            id: widgetIdRef.current,
-            name: `#${widgetIdRef.current++}`,
+            id: widgetCount,
+            name: `#${widgetCount++}`,
             isFixed: true,
             isInstallChildren: false,
             subWidgets: [] as Widget[],
@@ -124,14 +125,14 @@ export default function WidgetsPositionContainer() {
         })
         .concat(
           {
-            id: widgetIdRef.current,
-            name: `#${widgetIdRef.current++}`,
+            id: widgetCount,
+            name: `#${widgetCount++}`,
             isFixed: true,
             isInstallChildren: true,
             subWidgets: [
               {
-                id: widgetIdRef.current,
-                name: `#${widgetIdRef.current++}`,
+                id: widgetCount,
+                name: `#${widgetCount++}`,
                 isFixed: false,
                 isInstallChildren: false,
                 subWidgets: [],
@@ -139,15 +140,15 @@ export default function WidgetsPositionContainer() {
             ],
           },
           {
-            id: widgetIdRef.current,
-            name: `#${widgetIdRef.current++}`,
+            id: widgetCount,
+            name: `#${widgetCount++}`,
             isFixed: true,
             isInstallChildren: false,
             subWidgets: [] as Widget[],
           },
           {
-            id: widgetIdRef.current,
-            name: `#${widgetIdRef.current++}`,
+            id: widgetCount,
+            name: `#${widgetCount++}`,
             isFixed: true,
             isInstallChildren: true,
             subWidgets: [],
