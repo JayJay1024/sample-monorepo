@@ -119,10 +119,7 @@ export default function PositionWidgetItem({ widget, onDelete, onEdit, onMove }:
             ))}
 
             {/* drag here tips */}
-            <div
-              className="px-5 py-3 border border-dashed border-[#D8D8D8] flex items-center gap-1"
-              ref={dropTargetRef}
-            >
+            <div className="px-5 py-3 border border-dashed border-[#D8D8D8] flex items-center gap-1">
               <Image width={20} height={20} alt="Drop widget" src="/drop.svg" />
               <span className="text-sm font-normal text-[#9D9D9D]">Drag widget here</span>
             </div>
