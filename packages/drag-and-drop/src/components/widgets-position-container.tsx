@@ -64,7 +64,7 @@ export default function WidgetsPositionContainer() {
           // in the same sub-widgets container
           return prev;
         } else {
-          // widget => sub-widget
+          // move into sub-widgets container
           const dragWidget = { ...prev[dragDeep0Index] };
           prev[hoverDeep0Index].subWidgets.push(dragWidget);
           prev.splice(dragDeep0Index, 1);
@@ -77,15 +77,11 @@ export default function WidgetsPositionContainer() {
         prev[hoverDeep0Index].subWidgets.splice(hoverDeep1Index, 0, dragWidget);
         return [...prev];
       } else if (dragDeep1Index > -1 && hoverDeep0Index > -1 && hoverDeep1Index === -1) {
-        // sub-widget => widget
+        // move out sub-widgets container
         const dragWidget = { ...prev[dragDeep0Index].subWidgets[dragDeep1Index] };
         prev[dragDeep0Index].subWidgets.splice(dragDeep1Index, 1);
         prev.splice(hoverDeep0Index, 0, dragWidget);
         return [...prev];
-      } else if (dragDeep0Index > -1 && dragDeep1Index === -1 && hoverDeep1Index > -1) {
-        // widget => sub-widget
-        // only through the way of options?.isMoveIntoSub
-        return prev;
       } else if (dragDeep0Index > -1 && dragDeep1Index === -1 && hoverDeep0Index > -1 && hoverDeep1Index === -1) {
         // widget => widget
         const dragWidget = { ...prev[dragDeep0Index] };
