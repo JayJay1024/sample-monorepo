@@ -65,24 +65,24 @@ export default function PositionWidgetSubItem({ widget, onDelete, onEdit, onMove
             autoFocus
           />
         ) : (
-          <span
-            className={`text-sm font-semibold ${
-              widget.isFixed && !widget.isInstallChildren ? "text-[#9D9D9D]" : "text-[#302B3C]"
-            }`}
-          >
-            {widget.name.slice(0, 20)}
-            {widget.name.length > 20 ? "..." : ""}
-          </span>
-        )}
-        {!isChangeName && (
-          <Image
-            width={16}
-            height={16}
-            alt="Edit widget"
-            src="/edit.svg"
-            className="transition-transform hover:cursor-pointer hover:scale-105 active:scale-95"
-            onClick={() => setIsChangeName(true)}
-          />
+          <>
+            <span
+              className={`text-sm font-semibold ${
+                widget.isFixed && !widget.isInstallChildren ? "text-[#9D9D9D]" : "text-[#302B3C]"
+              }`}
+            >
+              {widget.name.slice(0, 20)}
+              {widget.name.length > 20 ? "..." : ""}
+            </span>
+            <Image
+              width={16}
+              height={16}
+              alt="Edit widget"
+              src="/edit.svg"
+              className="transition-transform hover:cursor-pointer hover:scale-105 active:scale-95"
+              onClick={() => setIsChangeName(true)}
+            />
+          </>
         )}
       </div>
 
