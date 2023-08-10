@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/JayJay1024/sample-monorepo/issues"
   },
-  "homepage": "https://github.com/JayJay1024/sample-monorepo#readme"
+  "homepage": "https://github.com/JayJay1024/sample-monorepo#readme",
+  "dependencies": {
+    "ethers": "^6.7.0"
+  }
 }
